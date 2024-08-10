@@ -6,3 +6,4 @@ tmp/
 temp/
 .data
 .wwebjs_auth/
+.wwebjs_cache
