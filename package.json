@@ -1,0 +1,39 @@
+{
+   "name": "jogatina",
+   "version": "0.0.1",
+   "description": "Awesome project developed with TypeORM.",
+   "type": "commonjs",
+   "main": "index.ts",
+   "dependencies": {
+      "date-fns": "^3.3.1",
+      "dotenv": "^16.4.5",
+      "env-cmd": "^10.1.0",
+      "pg": "^8.4.0",
+      "qrcode-terminal": "^0.12.0",
+      "reflect-metadata": "^0.1.13",
+      "typeorm": "0.3.20",
+      "typeorm-naming-strategies": "^4.1.0",
+      "whatsapp-web.js": "^1.25.0"
+   },
+   "devDependencies": {
+      "@types/node": "^20.11.24",
+      "@types/qrcode-terminal": "^0.12.2",
+      "@typescript-eslint/eslint-plugin": "^7.1.0",
+      "eslint": "^8.57.0",
+      "nodemon": "^3.1.0",
+      "prettier": "^3.2.5",
+      "rimraf": "^5.0.5",
+      "ts-node": "^10.9.2",
+      "tsconfig-paths": "^4.2.0",
+      "typescript": "^5.3.3"
+   },
+   "scripts": {
+      "migration:generate": "npm run typeorm -- --dataSource=src/database/data-source.ts migration:generate",
+      "migration:create": "npm run typeorm -- migration:create",
+      "migration:run": "npm run typeorm -- --dataSource=src/database/data-source.ts migration:run",
+      "migration:revert": "npm run typeorm -- --dataSource=src/database/data-source.ts migration:revert",
+      "start": "ts-node -r dotenv/config src/index.ts",
+      "start:dev": "npx nodemon --env-file=.env",
+      "typeorm": "env-cmd ts-node -r tsconfig-paths/register ./node_modules/typeorm/cli.js"
+   }
+}
